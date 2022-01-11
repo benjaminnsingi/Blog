@@ -1,0 +1,6 @@
+<form action="{{ url('admin_category_delete', {id: category.id}) }}" method="post" data-confirmation="true" id="delete-form">
+    <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />
+    <button type="submit" class="btn btn-lg btn-block btn-danger">
+         Supprimer
+    </button>
+</form>

@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block content %}
+    <div>
+        <h1>Welcome to admin</h1>
+        <table>
+            <thead>
+            <tr>
+                <th>Titre</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.name }}</td>
+                    <td>
+                        <div>
+                            <a href="{{ path('admin_new_category') }}">Créer</a>
+                            <a href="{{ path('admin_category_show', {id: category.id}) }}">Voir</a>
+                            <a href="{{ path('admin_category_edit', {id: category.id}) }}">Modifier</a>
+                            {{ include('admin/category/_delete_form.html.twig') }}
+                        </div>
+                    </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}

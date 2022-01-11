@@ -18,6 +18,9 @@ class Post
     #[ORM\Column(type: 'string', length: 255)]
     private ?string $title = null;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private ?string $slug = null;
+
     #[ORM\Column(type: 'text')]
     private ?string $content = null;
 
@@ -37,6 +40,11 @@ class Post
         $this->categories = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->title;
+    }
+
     public function getId(): ?int
     {
         return $this->id;
@@ -54,6 +62,17 @@ class Post
         return $this;
     }
 
+    public function getSlug(): ?string
+    {
+        return $this->slug;
+    }
+
+    public function setSlug(string $slug): self
+    {
+        $this->slug = $slug;
+        return $this;
+    }
+
     public function getContent(): ?string
     {
         return $this->content;
@@ -66,7 +85,7 @@ class Post
         return $this;
     }
 
-    public function getPublishedAt(): ?\DateTime
+    public function getPublishedAt(): \DateTime
     {
         return $this->publishedAt;
     }
@@ -78,7 +97,7 @@ class Post
         return $this;
     }
 
-    public function getUpdateAt(): ?\DateTime
+    public function getUpdateAt(): \DateTime
     {
         return $this->updateAt;
     }
