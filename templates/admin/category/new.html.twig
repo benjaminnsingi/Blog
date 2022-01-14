@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
 {% block content %}
-    <h1>Formulaire d'ajout d'une categorie</h1>
-    {{ form_start(form) }}
-        {{ form_row(form) }}
-        <button type="submit" class="btn btn-primary">
-            Valider
-        </button>
-    {{ form_end(form) }}
+   <div class="container">
+       <h1>{{ 'name.category_new'|trans }}</h1>
+       {{ form_start(form) }}
+       {{ form_row(form.name) }}
+       {{ form_widget(form.saveCategory, {label: 'label.save_category', attr: {class: 'btn btn-primary'}}) }}
+       {{ form_end(form) }}
+   </div>
 {% endblock %}

@@ -1,4 +1,6 @@
-{{  form_start() }}
+{{  form_start(form) }}
     {{ form_row(form) }}
-    <button type="submit">Valider</button>
-{{  form_end() }}
+    <button type="submit" class="{{ button_css|default("btn btn-primary") }}">
+        {{ button_label|default('label.create_category'|trans) }}
+    </button>
+{{  form_end(form) }}

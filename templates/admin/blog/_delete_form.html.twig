@@ -1,6 +1,6 @@
-<form action="{{ url('admin_post_delete', {id: post.id}) }}" method="post" data-confirmation="true" id="delete-form">
+<form action="{{ url('admin_post_delete', {id: post.id}) }}" method="post" data-confirmation="true" id="delete-form" style="display: inline-block;" onsubmit="return confirm('Are you sure you want to delete this item?');">
     <input type="hidden" name="token" value="{{ csrf_token('delete') }}" />
     <button type="submit" class="btn btn-lg btn-block btn-danger">
-         Supprimer
+        {{ 'action.delete_post'|trans }}
     </button>
 </form>

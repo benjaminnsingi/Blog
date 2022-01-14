@@ -8,9 +8,9 @@ use Symfony\Component\Routing\Annotation\Route;
 
 class BlogController extends AbstractController
 {
-    #[Route('/', name: 'blog_index', methods: ['GET'])]
+    #[Route('/{_locale<%app.locales%>}/', name: 'blog_index', methods: ['GET'])]
     public function index(): Response
     {
-        return $this->render('blog/index.html.twig');
+        return $this->render('blog/homepage.html.twig');
     }
 }

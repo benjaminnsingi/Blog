@@ -3,13 +3,12 @@
 {% block title %} modification{% endblock %}
 
 {% block content %}
-    <h1>Modification d'un article</h1>
+   <div class="container">
+       <h1>{{ 'title.edit_post'|trans({'id' : post.id}) }}</h1>
 
-    {{ form_start(form) }}
-    {{ form_row(form) }}
-    <button type="submit" class="btn btn-primary">
-        Valider
-    </button>
-    {{ form_end(form) }}
+       {{ include('admin/blog/_form.html.twig', {
+           form: form,
+           button_label: 'action.save'|trans
+       }) }}
+   </div>
 {% endblock %}
-

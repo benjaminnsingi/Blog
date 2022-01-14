@@ -7,6 +7,7 @@ use App\Form\PostType;
 use App\Repository\PostRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -14,7 +15,7 @@ use Symfony\Component\Routing\Annotation\Route;
 #[Route('/admin/post')]
 class BlogController extends AbstractController
 {
-    #[Route('/', name: 'admin_post_index', methods: ['GET'])]
+    #[Route('/{_locale<%app.locales%>}/', name: 'admin_post_index', methods: ['GET'])]
     public function index(PostRepository $posts): Response
     {
         $authorPosts =  $posts->findAll();
@@ -23,19 +24,20 @@ class BlogController extends AbstractController
         ]);
     }
 
-    #[Route('/new', name: 'admin_new_post', methods: ['GET', 'POST'])]
+    #[Route('/{_locale<%app.locales%>}/new', name: 'admin_new_post', methods: ['GET', 'POST'])]
     public function create(Request $request, EntityManagerInterface $entityManager): Response
     {
         $post = new Post();
 
-        $form = $this->createForm(PostType::class, $post);
+        $form = $this->createForm(PostType::class, $post)
+              ->add('saveAndCreateNew', SubmitType::class);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager->persist($post);
             $entityManager->flush();
 
-            $this->addFlash('success', 'article créer avec succès');
+            $this->addFlash('success', 'post.created_successfully');
             return $this->redirectToRoute('admin_post_index');
         }
 
@@ -45,7 +47,7 @@ class BlogController extends AbstractController
         ]);
     }
 
-    #[Route('/{id<\d+>}', name: 'admin_post_show', methods: ['GET'])]
+    #[Route('/{_locale<%app.locales%>}/{id<\d+>}', name: 'admin_post_show', methods: ['GET'])]
     public function show(Post $post): Response
     {
         return $this->render('admin/blog/show.html.twig', [
@@ -53,15 +55,15 @@ class BlogController extends AbstractController
         ]);
     }
 
-    #[Route('/{id<\d+>}/edit', name: 'admin_post_edit', methods: ['GET', 'POST'])]
-    public function edit(Request $request, Post $post, EntityManagerInterface $entityManager): Response
+    #[Route('/{_locale<%app.locales%>}/{id<\d+>}/edit', name: 'admin_post_edit', methods: ['GET', 'POST'])]
+    public function update(Request $request, Post $post, EntityManagerInterface $entityManager): Response
     {
        $form = $this->createForm(PostType::class, $post);
        $form->handleRequest($request);
 
        if ($form->isSubmitted() && $form->isValid()) {
            $entityManager->flush();
-           $this->addFlash('success', 'article modifié avec succès');
+           $this->addFlash('success', 'post.updated_successfully');
 
            return $this->redirectToRoute('admin_post_edit', ['id' => $post->getId()]);
        }
@@ -72,7 +74,7 @@ class BlogController extends AbstractController
        ]);
     }
 
-    #[Route('/{id}/delete', name: 'admin_post_delete', methods: ['POST'])]
+    #[Route('/{_locale<%app.locales%>}/{id}/delete', name: 'admin_post_delete', methods: ['POST'])]
     public function delete(Request $request, Post $post, EntityManagerInterface $entityManager): Response
     {
         if (!$this->isCsrfTokenValid('delete', $request->request->get('token'))) {
@@ -82,7 +84,7 @@ class BlogController extends AbstractController
         $entityManager->remove($post);
         $entityManager->flush();
 
-        $this->addFlash('success', 'article supprimé avec succès');
+        $this->addFlash('success', 'post.deleted_successfully');
         return $this->redirectToRoute('admin_post_index');
     }
 }

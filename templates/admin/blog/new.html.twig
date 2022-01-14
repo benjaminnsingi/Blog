@@ -1,11 +1,16 @@
 {% extends 'base.html.twig' %}
 
+{% block title 'admin_new_post' %}
+
 {% block content %}
-    <h1>Formulaire d'ajout d'un article</h1>
-    {{ form_start(form) }}
-        {{ form_row(form) }}
-        <button type="submit" class="btn btn-primary">
-            Valider
-        </button>
-    {{ form_end(form) }}
+   <div class="container">
+       <h1>{{ 'title.post_new'|trans }}</h1>
+       {{ form_start(form) }}
+       {{ form_row(form.title) }}
+       {{ form_row(form.content) }}
+       {{ form_row(form.publishedAt) }}
+       {{ form_row(form.categories) }}
+       {{ form_widget(form.saveAndCreateNew, {label: 'label.save_and_create_new', attr: {class: 'btn btn-primary'}}) }}
+       {{ form_end(form) }}
+   </div>
 {% endblock %}

@@ -3,26 +3,30 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block content %}
-    <div>
-        <h1>Welcome to admin</h1>
-        <table>
+    <div class="container">
+        <h1>{{ 'name.category_list'|trans }}</h1>
+        <table class="table">
             <thead>
-            <tr>
-                <th>Titre</th>
-            </tr>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">{{ 'label.name'| trans }}</th>
+                    <th scope="col">{{ 'label.actions'|trans }}</th>
+                    <th><a href="{{ path('admin_new_category') }}" class="btn btn-primary">{{ 'action.create_category'|trans }}</a></th>
+                </tr>
             </thead>
             <tbody>
             {% for category in categories %}
                 <tr>
+                    <th>{{ category.id }}</th>
                     <td>{{ category.name }}</td>
                     <td>
-                        <div>
-                            <a href="{{ path('admin_new_category') }}">Créer</a>
-                            <a href="{{ path('admin_category_show', {id: category.id}) }}">Voir</a>
-                            <a href="{{ path('admin_category_edit', {id: category.id}) }}">Modifier</a>
-                            {{ include('admin/category/_delete_form.html.twig') }}
-                        </div>
+                        <a href="{{ path('admin_category_edit', {id: category.id}) }}" class="btn btn-primary">{{ 'action.category_edit'|trans }}</a>
+                        {{ include('admin/category/_delete_form.html.twig') }}
                     </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" >{{ 'category.no_categories_found'|trans }}</td>
                 </tr>
             {% endfor %}
             </tbody>

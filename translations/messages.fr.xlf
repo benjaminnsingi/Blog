@@ -1,0 +1,166 @@
+<?xml version="1.0" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="fr" datatype="plaintext" original="file.ext">
+       <body>
+       <!--- Start  Post Entity -->
+           <trans-unit id="label.actions">
+               <source>label.actions</source>
+               <target>Actions</target>
+           </trans-unit>
+           <trans-unit id="label.title">
+               <source>label.title</source>
+               <target>Titre</target>
+           </trans-unit>
+           <trans-unit id="label.content">
+               <source>label.content</source>
+               <target>Description</target>
+           </trans-unit>
+           <trans-unit id="label.published_at">
+               <source>label.published_at</source>
+               <target>Publié le</target>
+           </trans-unit>
+           <trans-unit id="label.save_and_create_new">
+               <source>label.save_and_create_new</source>
+               <target>Enregistrer et créer un nouveau</target>
+           </trans-unit>
+
+
+
+           <trans-unit id="action.create_post">
+               <source>action.create_post</source>
+               <target>Créer un nouvel article</target>
+           </trans-unit>
+          <trans-unit id="action.show">
+              <source>action.show</source>
+              <target>Voir</target>
+          </trans-unit>
+          <trans-unit id="action.show_post">
+              <source>action.show_post</source>
+              <target>Voir l'article</target>
+          </trans-unit>
+          <trans-unit id="action.edit">
+              <source>action.edit</source>
+              <target>Editer</target>
+          </trans-unit>
+          <trans-unit id="action.edit_post">
+                <source>action.edit_post</source>
+                <target>Modifier l'article</target>
+          </trans-unit>
+           <trans-unit id="action.save">
+              <source>action.save</source>
+              <target>Enregistrer</target>
+          </trans-unit>
+
+          <trans-unit id="title.post_list">
+              <source>title.post_list</source>
+              <target>Liste des articles</target>
+          </trans-unit>
+           <trans-unit id="title.edit_post">
+                  <source>title.edit_post</source>
+                  <target>Modifier l'article</target>
+          </trans-unit>
+           <trans-unit id="title.post_new">
+               <source>title.post_new</source>
+               <target>Ajouter un nouvel article</target>
+           </trans-unit>
+
+
+
+          <trans-unit id="post.created_successfully">
+                <source>post.created_successfully</source>
+                <target>Article crée avec succès!</target>
+          </trans-unit>
+           <trans-unit id="post.updated_successfully">
+                 <source>post.updated_successfully</source>
+                 <target>Article mis à jour avec succès !</target>
+           </trans-unit>
+           <trans-unit id="action.delete_post">
+               <source>action.delete_post</source>
+               <target>Supprimer</target>
+          </trans-unit>
+          <trans-unit id="post.deleted_successfully">
+               <source>post.deleted_successfully</source>
+               <target>Article supprimé avec succès !</target>
+          </trans-unit>
+          <trans-unit id="post.no_posts_found">
+                <source>post.no_posts_found</source>
+                <target>Aucun article trouvé.</target>
+          </trans-unit>
+       <!--- End Post Entity -->
+
+
+       <!--- Start Categories Entity -->
+           <trans-unit id="label.name">
+               <source>label.name</source>
+               <target>Nom</target>
+           </trans-unit>
+           <trans-unit id="label.save_category">
+               <source>label.save_category</source>
+               <target>Enregistrer</target>
+           </trans-unit>
+
+           <trans-unit id="action.create_category">
+               <source>action.create_category</source>
+               <target>Créer un nouveau catégorie</target>
+           </trans-unit>
+           <trans-unit id="action.show.category">
+               <source>action.show.category</source>
+               <target>Voir</target>
+           </trans-unit>
+           <trans-unit id="action.category_show">
+               <source>action.category_show</source>
+               <target>Voir categorie</target>
+           </trans-unit>
+           <trans-unit id="action.category_edit">
+               <source>action.category_edit</source>
+               <target>Editer</target>
+           </trans-unit>
+           <trans-unit id="action.edit_category">
+               <source>action.edit_category</source>
+               <target>Modifier categorie</target>
+           </trans-unit>
+           <trans-unit id="action.save.category">
+               <source>action.save.category</source>
+               <target>Enregistrer</target>
+           </trans-unit>
+
+
+           <trans-unit id="name.category_new">
+               <source>name.category_new</source>
+               <target>Ajouter une catégorie</target>
+           </trans-unit>
+           <trans-unit id="name.category_list">
+               <source>name.category_list</source>
+               <target>Liste de catégories</target>
+           </trans-unit>
+           <trans-unit id="name.edit_category">
+               <source>name.edit_category</source>
+               <target>Modifier catégorie</target>
+           </trans-unit>
+
+
+           <trans-unit id="category.no_categories_found">
+               <source>category.no_categories_found</source>
+               <target>Aucune categorie trouvée</target>
+           </trans-unit>
+           <trans-unit id="category.created_successfully">
+               <source>category.created_successfully</source>
+               <target>Categorie crée jour avec succès!</target>
+           </trans-unit>
+           <trans-unit id="category.updated_successfully">
+               <source>category.updated_successfully</source>
+               <target>Categorie mise à jour avec succès!</target>
+           </trans-unit>
+           <trans-unit id="category.deleted_successfully">
+               <source>category.deleted_successfully</source>
+               <target>Categorié supprimée avec succès!</target>
+           </trans-unit>
+       <!--- End Categories Entity -->
+
+           <trans-unit id="menu.choose_language">
+               <source>menu.choose_language</source>
+               <target>Choisir la langue</target>
+           </trans-unit>
+       </body>
+    </file>
+</xliff>

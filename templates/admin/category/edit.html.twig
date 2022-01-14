@@ -3,12 +3,11 @@
 {% block title %} modification{% endblock %}
 
 {% block content %}
-    <h1>Modification d'une categorie</h1>
-
-    {{ form_start(form) }}
-    {{ form_row(form) }}
-    <button type="submit" class="btn btn-primary">
-        Valider
-    </button>
-    {{ form_end(form) }}
+   <div class="container">
+       <h1>{{ 'name.edit_category'|trans({'id' : categories.id}) }}</h1>
+       {{ include('admin/category/_form.html.twig', {
+           form: form,
+           button_label: 'action.save'|trans
+       }) }}
+   </div>
 {% endblock %}
